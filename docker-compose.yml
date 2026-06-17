@@ -28,8 +28,10 @@ services:
     profiles: ["auto"]
     build: ./services/AUTOMATIC1111
     image: sd-auto:78
+    ports:
+      - "7861:7860"   # Maps HOST port 7861 -> CONTAINER port 7860
     environment:
-      - CLI_ARGS=--allow-code --medvram --xformers --enable-insecure-extension-access --api
+      - CLI_ARGS=--allow-code --medvram --enable-insecure-extension-access --api
 
   auto-cpu:
     <<: *automatic
@@ -45,6 +47,10 @@ services:
     image: sd-comfy:7
     environment:
       - CLI_ARGS=
+    volumes:
+      - *v1
+      - *v2
+      - ./services/comfy/extra_model_paths.yaml:/stable-diffusion/extra_model_paths.yaml
 
 
   comfy-cpu:

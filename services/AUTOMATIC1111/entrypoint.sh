@@ -13,7 +13,7 @@ find "${ROOT}/scripts/" -maxdepth 1 -type l -delete
 cp -vrfTs /data/config/auto/scripts/ "${ROOT}/scripts/"
 
 # Set up config file
-python /docker/config.py /data/config/auto/config.json
+python3 /docker/config.py /data/config/auto/config.json
 
 if [ ! -f /data/config/auto/ui-config.json ]; then
   echo '{}' >/data/config/auto/ui-config.json
@@ -72,7 +72,7 @@ for installscript in "${list[@]}"; do
     echo "Skipping disabled extension ($EXTNAME)"
     continue
   fi
-  PYTHONPATH=${ROOT} python "$installscript"
+  PYTHONPATH=${ROOT} python3 "$installscript"
 done
 
 if [ -f "/data/config/auto/startup.sh" ]; then
