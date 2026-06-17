@@ -38,7 +38,7 @@ services:
     profiles: ["auto-cpu"]
     deploy: {}
     environment:
-      - CLI_ARGS=--no-half --precision full --allow-code --enable-insecure-extension-access --api
+      - CLI_ARGS=--allow-code --medvram --xformers --enable-insecure-extension-access --api
 
   comfy: &comfy
     <<: *base_service
