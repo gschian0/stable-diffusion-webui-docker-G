@@ -1,0 +1,34 @@
+Local branch status (master)
+- Ahead of origin/master: 2 commits
+- Behind origin/master: 3 commits
+
+Unpublished local commits
+1) a3bf634 laptop5090_upgrade
+   - Modified: services/comfy/Dockerfile
+   - Scope: RTX 5090/Blackwell-oriented Comfy build updates.
+
+2) 6067558 5090 lenovo stylee
+   - Modified: docker-compose.yml
+   - Modified: services/AUTOMATIC1111/Dockerfile
+   - Added: services/AUTOMATIC1111/download_repos.sh
+   - Modified: services/AUTOMATIC1111/entrypoint.sh
+   - Added many vendored repo files under:
+     - services/AUTOMATIC1111/repositories/BLIP/...
+     - services/AUTOMATIC1111/repositories/clip-interrogator/...
+     - services/AUTOMATIC1111/repositories/generative-models/...
+   - Added suspicious files at repo root (likely accidental):
+     - =
+     - CACHED
+     - ERROR
+     - [internal]
+     - [stage-0
+     - reading
+     - resolve
+
+Remote configuration
+- origin: https://github.com/gschian0/stable-diffusion-webui-docker-G.git
+- upstream: https://github.com/AbdBarho/stable-diffusion-webui-docker.git
+
+Notes
+- Working tree is clean (changes are committed locally).
+- Divergent-branch pull error occurs because local and remote each have commits the other does not.
